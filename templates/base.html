@@ -72,6 +72,18 @@ https://templatemo.com/tm-546-sixteen-clothing
                 <li class="nav-item">
                   <a class="nav-link" href="contact.html">Contact Us</a>
                 </li>
+                {% if request.user.is_authenticated %}
+                  <li class="nav-item">
+                    <a class="nav-link" href="#"> {{request.user.username|capfirst}}</a>
+                  </li>
+                {% else %}
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'dev_login' %}"> Login</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'dev_registration' %}">Registration</a>
+                </li>
+                {% endif %}
               </ul>
             </div>
           </div>
@@ -91,9 +103,9 @@ https://templatemo.com/tm-546-sixteen-clothing
         <div class="row">
           <div class="col-md-12">
             <div class="inner-content">
-              <p>Copyright &copy; 2020 Sixteen Clothing Co., Ltd.
+              <p>Copyright &copy; 2020 Templates Market
             
-            - Design: <a rel="nofollow noopener" href="https://templatemo.com" target="_blank">TemplateMo</a></p>
+            - Design: <a rel="nofollow noopener" href="https://github.com/Baba7080" target="_blank">Template Market</a></p>
             </div>
           </div>
         </div>
